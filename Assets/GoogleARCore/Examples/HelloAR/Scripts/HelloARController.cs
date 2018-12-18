@@ -46,14 +46,19 @@ namespace GoogleARCore.Examples.HelloAR
         public GameObject DetectedPlanePrefab;
 
         /// <summary>
-        /// A model to place when a raycast from a user touch hits a plane.
+        /// A model of the Spoon
         /// </summary>
-        public GameObject AndyPlanePrefab;
+        public GameObject SpoonPrefab;
 
         /// <summary>
-        /// A model to place when a raycast from a user touch hits a feature point.
+        /// A model of the Fork
         /// </summary>
-        public GameObject AndyPointPrefab;
+        public GameObject ForkPrefab;
+        
+        /// <summary>
+        /// A model of the Plate
+        /// </summary>
+        public GameObject PlatePrefab;
 
         /// <summary>
         /// A game object parenting UI for displaying the "searching for planes" snackbar.
@@ -123,13 +128,13 @@ namespace GoogleARCore.Examples.HelloAR
                 {
                     // Choose the Andy model for the Trackable that got hit.
                     GameObject prefab;
-                    if (hit.Trackable is FeaturePoint)
+                    if (hit.Trackable is DetectedPlane)
                     {
-                        prefab = AndyPointPrefab;
+                        prefab = PlatePrefab;
                     }
                     else
                     {
-                        prefab = AndyPlanePrefab;
+                        prefab = null;
                     }
 
                     // Instantiate Andy model at the hit pose.
